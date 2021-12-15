@@ -2,8 +2,13 @@ import React from "react"
 import { Button } from "../button"
 import { Input } from "../input"
 import { InputGroup } from "../inputGorup"
+import { Flex } from "../inputGorup/styles"
 import { WithFormControlled } from "./formControlled"
-  
+ 
+/**
+ * Show Search form
+ * @returns 
+ */
 const Form = ({ 
     _handleChange,
     _handleSubmit,
@@ -28,8 +33,10 @@ const Form = ({
                 value={values.repository}
                 onBlur={_onBlur}
                 error={validations.repository}
-            />   
-            <Button type="submit" text="Find" />
+            />  
+            <Flex css={'@media screen and (max-width: 767px){ width: 70%;}'}>
+                <Button type="submit" text="Find" css={'background-color: #1879e1; color: #ffffff;'} hover={'background-color: #004fa4'}/>
+            </Flex> 
         </InputGroup>
     </form>
 )

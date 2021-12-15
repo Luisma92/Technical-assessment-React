@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    position: fixed;
+    position: relative;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -13,4 +13,7 @@ export const Container = styled.div`
     height: auto;
     padding: 1rem 0;
     z-index: 10;
+    @media screen and (min-width: 768px){
+        position: fixed;
+    }
 `

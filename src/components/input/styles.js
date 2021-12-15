@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CustomImput = styled.input`
-    margin: 1rem;
+    margin: .5rem;
     height: 35px;
     border-radius: 8px;
     background-color: #242424;
@@ -10,6 +10,7 @@ export const CustomImput = styled.input`
     padding-left: 10px;
     border: ${props => props.error.length ? '1px solid red' : 0};
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    
 `
 
 export const Block = styled.div`
@@ -19,4 +20,7 @@ export const Block = styled.div`
 export const Column = styled.div`
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 767px){
+        width: 70%;
+    }
 `

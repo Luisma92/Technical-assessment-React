@@ -14,6 +14,11 @@ const COLORS = [
     '#B83280',
 ];
 
+/**
+ * 
+ * @param {string} name 
+ * @returns {string} code hex color #C6EFF
+ */
 const getColorByName = name => {
     if (name) {
         const firstCharacter = String(name).charCodeAt(0);
@@ -22,12 +27,20 @@ const getColorByName = name => {
     return '#C6E2FF'
 };
 
-export const Avatar = ({avatar, firstName, size, ...props}) => {
+/**
+ * 
+ * @param {string} avatar avatar url
+ * @param {string} firstName name
+ * @param {string} size avatar size 2rem, 20px 
+ * @param {string} css css rules 
+ * @returns 
+ */
+export const Avatar = ({avatar, firstName, size, css,...props}) => {
     
     return avatar && avatar !== 'undefined' ?
         <>
             <div>
-                <AvatarImg style={{backgroundImage: `url(${avatar})`, backgroundSize: 'cover'}} size={size} {...props}
+                <AvatarImg style={{backgroundImage: `url(${avatar})`, backgroundSize: 'cover'}} size={size} {...props} css={css}
                     onError={(e) => {
                         e.target.css('background-image',`image(${UndefinedImage})`)
                     }}
@@ -36,7 +49,7 @@ export const Avatar = ({avatar, firstName, size, ...props}) => {
         </>
         :
         <div>
-            <AvatarLetter firstName={firstName} getColorByName={getColorByName} size={size} {...props}>
+            <AvatarLetter firstName={firstName} getColorByName={getColorByName} size={size} css={css} {...props}>
                 {firstName.charAt(0).toUpperCase()}
             </AvatarLetter>
         </div>

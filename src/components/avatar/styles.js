@@ -1,8 +1,9 @@
-import styled, {css} from "styled-components";
+import styled, {css} from "styled-components"
 
 const styleSizing = css`
     height: ${props => props.size};
     width: ${props => props.size};
+    ${props => props.css}
 `;
 export const AvatarImg = styled.div`
     ${styleSizing}

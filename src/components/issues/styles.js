@@ -8,11 +8,15 @@ export const StyledIssue = styled.div`
     border-radius: 10px;
     margin: .5rem;
     padding: .75rem;
+    cursor: pointer;
 `
 export const StyledUser = styled.div`
-    min-width: 6rem;
+    min-width: 4rem;
     position: relative;
-    min-height: 6.5rem;
+    min-height: 8rem;
+    @media screen and (min-width: 768px){
+        min-width: 6rem;
+    }
 `
 export const FlexInfo = styled.div`
     display: flex;

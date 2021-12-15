@@ -1,5 +1,8 @@
 import React from "react"
 
+/**
+ * Class Validator for validate input fields
+ */
 class Validator {
     constructor (value) {
         this.value = value
@@ -22,6 +25,12 @@ class Validator {
 
 }
 
+/**
+ * 
+ * @param {Component} Form 
+ * @param {object} initialState {values: {...}, validations: {...}}
+ * @returns 
+ */
 export const WithFormControlled = (Form, initialState) => (
     class FormWithControlled extends React.Component {
         constructor (props) {
@@ -57,10 +66,6 @@ export const WithFormControlled = (Form, initialState) => (
                 message = `${name} is required`
             }
             
-            if (value && (name === 'username' || name === 'repository') && (value.length < 3 || value.length > 50)) {
-                message = ' The field must contain at least 3 characters'
-            }
-            
             this.setState({
                 validations: {
                     ...this.state.validations,
@@ -73,7 +78,6 @@ export const WithFormControlled = (Form, initialState) => (
             const validatorField = new Validator(field)
             return validatorField
                 .isNotEmpty('The field is required')
-                .isLength(3, 50, ' The field must contain at least 3 characters')
                 .result
         }
         
